@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>19 - 10 - 2019</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countdown/2.6.0/countdown.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+    <script>(function(){var countdown,moment,ref,ref1,slice=[].slice;countdown=(ref=typeof require==="function"?require("countdown"):void 0)!=null?ref:this.countdown;moment=(ref1=typeof require==="function"?require("moment"):void 0)!=null?ref1:this.moment;moment.fn.countdown=function(){var args,other;other=arguments[0],args=2<=arguments.length?slice.call(arguments,1):[];return countdown.apply(null,[this.toDate(),moment(other).toDate()].concat(slice.call(args)))}}).call(this);</script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #estimated {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-size: 48pt;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="estimated"></div>
+    </div>
+    <script>
+        let start = moment('2019-10-19 14:23','YYYY-MM-DD HH:mm');
+        setInterval(() => {
+            let str = moment(start).countdown().toString();
+            let date = str.replace(/years|year/gi, 'tahun').replace(/months|month/gi, 'bulan').replace(/days|day/gi, 'hari').replace(/hours|hour/gi, 'jam').replace(/minutes|minute/gi, 'menit').replace(/seconds|second/gi, 'detik').replace('and', 'dan');
+            document.getElementById('estimated').innerHTML = date;
+        }, 1);
+    </script>
+</body>
+
+<!-- 14:23 19/10/2019 -->
+
+</html>
