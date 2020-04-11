@@ -29,10 +29,15 @@
             align-items: center;
         }
 
-        #estimated {
+        .container:last-child() {
+            margin-bottom: 0px;
+        }
+
+        [id*="estimated"] {
             color: white;
             font-family: 'Roboto', sans-serif;
             font-size: 48pt;
+            margin-bottom: 80px;
         }
     </style>
 </head>
@@ -40,17 +45,24 @@
 <body>
     <div class="container">
         <div id="estimated"></div>
+        <div id="estimated2"></div>
     </div>
     <script>
         let start = moment('2019-10-19 14:23','YYYY-MM-DD HH:mm');
+        let start2 = moment('2020-04-11 11:40','YYYY-MM-DD HH:mm');
         setInterval(() => {
             let str = moment(start).countdown().toString();
             let date = str.replace(/years|year/gi, 'tahun').replace(/months|month/gi, 'bulan').replace(/days|day/gi, 'hari').replace(/hours|hour/gi, 'jam').replace(/minutes|minute/gi, 'menit').replace(/seconds|second/gi, 'detik').replace('and', 'dan');
             document.getElementById('estimated').innerHTML = date;
+            
+            let str2 = moment(start2).countdown().toString();
+            let date2 = str2.replace(/years|year/gi, 'tahun').replace(/months|month/gi, 'bulan').replace(/days|day/gi, 'hari').replace(/hours|hour/gi, 'jam').replace(/minutes|minute/gi, 'menit').replace(/seconds|second/gi, 'detik').replace('and', 'dan');
+            document.getElementById('estimated2').innerHTML = date2;
         }, 1);
     </script>
 </body>
 
 <!-- 14:23 19/10/2019 -->
+<!-- 11:40 11/04/2020 -->
 
 </html>
